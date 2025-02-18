@@ -7,13 +7,13 @@ from textual.widgets import DataTable
 class TygenieDataTable(DataTable, inherit_bindings=False):
     BINDINGS = [
         Binding(
-            "G,pageup",
+            "g,pageup",
             "cursor_up_or_previous_page",
             "Go on first alert or load previous page",
             show=False,
         ),
         Binding(
-            "g,pagedown",
+            "G,pagedown",
             "cursor_down_or_next_page",
             "Go on last alert or load next page",
             show=False,
@@ -33,19 +33,19 @@ class TygenieDataTable(DataTable, inherit_bindings=False):
         self.action_cursor_down()
 
     def on_key(self, event: events.Key) -> None:
-        if event.key == "up":
+        if event.key == "up,k":
             if self.cursor_row == 0:
                 self.action_cursor_up_or_previous_page()
             else:
                 self.action_cursor_up()
-        elif event.key == "down":
+        elif event.key == "down,j":
             if self.cursor_row == self.row_count - 1:
                 self.action_cursor_down_or_next_page()
             else:
                 self.action_cursor_down()
-        elif event.key == "left":
+        elif event.key == "left,h":
             self.post_message(self.PreviousPage())
-        elif event.key == "right":
+        elif event.key == "right,l":
             self.post_message(self.NextPage())
 
     def action_cursor_up_or_previous_page(self):
