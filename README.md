@@ -84,24 +84,14 @@ Please refer to [textual FAQ](https://textual.textualize.io/FAQ/#how-can-i-selec
 
 ## Installation
 
-<a name="pip"></a>
-
-### pip
-
-Each release of Tygenie is published on [pypi](https://pypi.org/project/tygenie/) so simply do a pip install
-
-```bash
-pip install tygenie
-```
-
-Or by using directly code from Github repository with pipx/uv
+As I am not pushing the fork to pip you need to use the code from Github repository with pipx/uv
 
 <a name="pipx"></a>
 
 ### pipx
 
 ```bash
-pipx install git+https://github.com/ovh/tygenie.git
+pipx install git+https://github.com/Plouch/tygenie.git
 ```
 
 <a name="uv"></a>
@@ -109,7 +99,7 @@ pipx install git+https://github.com/ovh/tygenie.git
 ### uv
 
 ```bash
-uv tool install git+https://github.com/ovh/tygenie.git
+uv tool install git+https://github.com/Plouch/tygenie.git
 ```
 
 <a name="start-the-application"></a>
