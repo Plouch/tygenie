@@ -18,6 +18,18 @@ class TygenieDataTable(DataTable, inherit_bindings=False):
             "Go on last alert or load next page",
             show=False,
         ),
+        Binding(
+            "j",
+            "cursor_down",
+            "Go down",
+            show=False,
+        ),
+        Binding(
+            "k",
+            "cursor_up",
+            "Go up",
+            show=False,
+        ),
     ]
 
     class NextPage(Message):
@@ -33,19 +45,19 @@ class TygenieDataTable(DataTable, inherit_bindings=False):
         self.action_cursor_down()
 
     def on_key(self, event: events.Key) -> None:
-        if event.key == "up,k":
+        if event.key == "up":
             if self.cursor_row == 0:
                 self.action_cursor_up_or_previous_page()
             else:
                 self.action_cursor_up()
-        elif event.key == "down,j":
+        elif event.key == "down":
             if self.cursor_row == self.row_count - 1:
                 self.action_cursor_down_or_next_page()
             else:
                 self.action_cursor_down()
-        elif event.key == "left,h":
+        elif event.key == "left":
             self.post_message(self.PreviousPage())
-        elif event.key == "right,l":
+        elif event.key == "right":
             self.post_message(self.NextPage())
 
     def action_cursor_up_or_previous_page(self):
